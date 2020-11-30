@@ -1,1 +1,7 @@
-# aoc-thoenluk-2020
+# Advent of Code 2020 solutions
+
+This repository serves as version control and distribution method for my solutions to the Advent of Code 2020 challenges. (https://adventofcode.com/)
+
+I write all my solutions in Java, as it is my most practiced and favourite to work with. If you are are looking for a developer versed in Java and Typescript as well as other languages and always ready to learn new things, based in Switzerland but open to remote work, let me know at lukas.thoeni@gmx.ch!
+
+If you are also participating in the Advent of Code, please refrain from cheating with these solutions. The point is practice, so you are only cheating yourself. I learn a lot every time I do these challenges and I believe so can you. Nevertheless, if you want to know more about my solutions I am always open to chat about them.
