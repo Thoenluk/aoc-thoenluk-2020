@@ -11,14 +11,21 @@ import java.util.HashMap;
 
 /**
  *
- * @author Lukas Thöni lukas.thoeni@gmx.ch
+ * @author Lukas Thï¿½ni lukas.thoeni@gmx.ch
  */
 public class Ut {
-    private static HashMap<String, Integer> numberCache = new HashMap<>();
+    private static final HashMap<String, Integer> numberCache = new HashMap<>();
     
-    public static int cachedParseInt(String stringRepresentation) {
+    public static int cachedParseInt(String stringRepresentation) throws NumberFormatException {
         if(!numberCache.containsKey(stringRepresentation)) {
             numberCache.put(stringRepresentation, Integer.parseInt(stringRepresentation));
+        }
+        return numberCache.get(stringRepresentation);
+    }
+    
+    public static int cachedParseInt(String stringRepresentation, int radix) throws NumberFormatException {
+        if(!numberCache.containsKey(stringRepresentation)) { // Does not distinguish radix. Probably fine in my use case.
+            numberCache.put(stringRepresentation, Integer.parseInt(stringRepresentation, radix));
         }
         return numberCache.get(stringRepresentation);
     }

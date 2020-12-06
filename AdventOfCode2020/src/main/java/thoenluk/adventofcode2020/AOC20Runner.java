@@ -35,7 +35,7 @@ public class AOC20Runner {
             // instantation to the running methods.
             // I could do otherwise, but it would be insane.
             for (String folder : folders) {
-                runner = Class.forName("thoenluk.adventofcode2020.Runner" + folder);
+                runner = Class.forName("thoenluk.adventofcode2020.runners.Runner" + folder);
                 solutions.put(folder + "0", runner.getMethod("runFirstChallenge", String.class));
                 solutions.put(folder + "1", runner.getMethod("runSecondChallenge", String.class));
             }

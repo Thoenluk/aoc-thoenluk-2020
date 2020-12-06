@@ -14,10 +14,11 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package thoenluk.adventofcode2020;
+package thoenluk.adventofcode2020.runners;
 
 import java.util.ArrayList;
 import java.util.TreeSet;
+import thoenluk.adventofcode2020.Ut;
 
 /**
  *
