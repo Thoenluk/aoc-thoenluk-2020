@@ -35,9 +35,8 @@ public class Runner06 {
         long newlines;
         for(String group : input.split("\n\n")) {
             newlines = group.chars().filter(ch -> ch == '\n').count();
-            group = group.replaceAll("\n", "").replaceAll("(.)(?!(.*\\1){" + newlines + "})", "");
-            YES += group.length();
-            // Regex: The cause of, and solution to, all of life's problems.
+            YES += group.replaceAll("\n", "").replaceAll("(.)(?!(.*\\1){" + newlines + "})", "").length();
+            // Regex: The cause of, and solution to, all of life's problems. Again.
         }
         System.out.println("There appear to be a total of " + YES + " shared yes answers. It appears I don't speak English either. How unfortunate, truly.");
     }
