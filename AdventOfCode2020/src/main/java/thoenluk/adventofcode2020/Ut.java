@@ -1,7 +1,9 @@
 package thoenluk.adventofcode2020;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -28,5 +30,53 @@ public class Ut {
             numberCache.put(stringRepresentation, Integer.parseInt(stringRepresentation, radix));
         }
         return numberCache.get(stringRepresentation);
+    }
+    
+    public class Node<T> {
+        private List<Node<T>> children = new ArrayList<>();
+        private Node<T> parent = null;
+        private T data;
+        
+        public Node(T data) {
+            this.data = data;
+        }
+        
+        public Node(T data, Node<T> parent) {
+            this.data = data;
+            this.parent = parent;
+        }
+        
+        public List<Node<T>> getChildren() {
+            return children;
+        }
+        
+        public Node<T> getParent() {
+            return parent;
+        }
+        
+        public void setParent(Node<T> parent) {
+            this.parent = parent;
+        }
+        
+        public void addChild(T data) {
+            this.children.add(new Node<>(data, this));
+       }
+        
+        public void addChild(Node<T> node) {
+            node.setParent(this);
+            this.children.add(node);
+        }
+        
+        public T getData() {
+            return data;
+        }
+        
+        public boolean isRoot() {
+            return this.parent == null;
+        }
+        
+        public boolean isLeaf() {
+            return this.children.size() == 0;
+        }
     }
 }
