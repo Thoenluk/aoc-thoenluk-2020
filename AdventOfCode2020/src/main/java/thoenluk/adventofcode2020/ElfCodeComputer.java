@@ -61,6 +61,11 @@ public class ElfCodeComputer {
         }
     }
     
+    /**
+     * Run the program within this ECC until it terminates (IP goes out of bounds),
+     * regardless of if it might loop. Since the Halting Problem is what it is, this
+     * method may have you stuck in an infinite loop, but we consciously don't check.
+     */
     public void runProgram() {
         String[] input;
         int i;
@@ -98,11 +103,7 @@ public class ElfCodeComputer {
     }
     
     private boolean isLooping() {
-        if(!visitedLines.contains(ip)) {
-            visitedLines.add(ip);
-            return false;
-        }
-        return true;
+        return !visitedLines.add(ip);
     }
     
     private int resolve(String directOrReference) {
