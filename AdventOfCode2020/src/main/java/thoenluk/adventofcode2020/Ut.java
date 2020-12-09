@@ -17,6 +17,7 @@ import java.util.List;
  */
 public class Ut {
     private static final HashMap<String, Integer> numberCache = new HashMap<>();
+    private static final HashMap<String, Long> longCache = new HashMap<>();
     
     public static int cachedParseInt(String stringRepresentation) throws NumberFormatException {
         if(!numberCache.containsKey(stringRepresentation)) {
@@ -30,6 +31,20 @@ public class Ut {
             numberCache.put(stringRepresentation, Integer.parseInt(stringRepresentation, radix));
         }
         return numberCache.get(stringRepresentation);
+    }
+    
+    public static long cachedParseLong(String stringRepresentation) throws NumberFormatException {
+        if(!longCache.containsKey(stringRepresentation)) {
+            longCache.put(stringRepresentation, Long.parseLong(stringRepresentation));
+        }
+        return longCache.get(stringRepresentation);
+    }
+    
+    public static long cachedParseLong(String stringRepresentation, int radix) throws NumberFormatException {
+        if(!longCache.containsKey(stringRepresentation)) { // Does not distinguish radix. Probably fine in my use case.
+            longCache.put(stringRepresentation, Long.parseLong(stringRepresentation, radix));
+        }
+        return longCache.get(stringRepresentation);
     }
     
     public class Node<T> {
