@@ -60,13 +60,13 @@ public class AOC20Runner {
                 // Read input from corresponding file
                 String actualDay = solutionIdentifier.substring(0, 2);
                 String input = Files.readString(Paths.get(actualDay, "\\input.txt"));
-                // Run the solution on the provided input. What it does to generate output is not specified.             
+                // Run the solution on the provided input. What it does to generate output is not specified.          
                 solutions.get(solutionIdentifier).invoke(null, input);
             }
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             System.out.println("I don't even know how this happened.\n"
-                    + "Maybe you can make sense of this " + e.getClass().getName() + "\n"
-                    + e.getMessage());
+                    + "Maybe you can make sense of this " + e.getClass().getName());
+            e.printStackTrace();
         } catch (IOException ex) {
             System.out.println("Couldn't find input. Are you sure it's in " + solutionIdentifier.substring(0, 2) + "\\input.txt?");
         }
