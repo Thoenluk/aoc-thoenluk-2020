@@ -19,23 +19,6 @@ package thoenluk.adventofcode2020;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.function.BiConsumer;
-
-enum Instruction {
-    nop((int[] args, ElfCodeComputer target) -> {}),
-    acc((int[] args, ElfCodeComputer target) -> {
-        target.setAcc(target.getAcc() + args[0]);
-    }),
-    jmp((int[] args, ElfCodeComputer target) -> {
-        target.setIp(target.getIp() + args[0] - 1);
-    });
-
-    public final BiConsumer<int[], ElfCodeComputer> code;
-
-    private Instruction(BiConsumer<int[], ElfCodeComputer> code) {
-        this.code = code;
-    }
-}
 
 /**
  *
