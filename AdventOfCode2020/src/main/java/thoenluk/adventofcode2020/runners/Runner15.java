@@ -16,14 +16,8 @@
  */
 package thoenluk.adventofcode2020.runners;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
 import thoenluk.adventofcode2020.Ut;
 
 /**
