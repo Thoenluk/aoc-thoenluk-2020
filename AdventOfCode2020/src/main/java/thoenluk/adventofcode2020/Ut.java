@@ -1,6 +1,7 @@
 package thoenluk.adventofcode2020;
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -45,6 +46,49 @@ public class Ut {
             longCache.put(stringRepresentation, Long.parseLong(stringRepresentation, radix));
         }
         return longCache.get(stringRepresentation);
+    }
+    
+    public static <T> T lastElement(T[] array) {
+        return array[array.length - 1];
+    }
+    
+    public static <T> T[][] flipVertically(T[][] matrix, Class<T> type) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        T[][] ret = (T[][]) Array.newInstance(type, m, n);
+        for(int r = 0; r < m; r++) {
+            ret[r] = matrix[m - 1 - r];
+            ret[m - 1 - r] = matrix[r];
+        }
+        return ret;
+    }
+    
+    public static <T> T[][] flipHorizontally(T[][] matrix, Class<T> type) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        T[][] ret = (T[][]) Array.newInstance(type, m, n);
+        for(int r = 0; r < m; r++) {
+            for(int c = 0; c < n; c++) {
+                ret[r][c] = matrix[r][n - 1 - c];
+                ret[r][n - 1 - c] = matrix[r][c];
+            }
+        }
+        return ret;
+    }
+    
+    public static <T> T[][] rotateClockwise(T[][] matrix, Class<T> type) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        T[][] ret = (T[][]) Array.newInstance(type, m, n);
+        for(int r = 0; r < m; r++) {
+            for(int c = r; c < n; c++) {
+                ret[r][c] = matrix[n - 1 - c][r];
+                ret[n - 1 - c][r] = matrix[m - 1 - r][n - 1 - c];
+                ret[m - 1 - r][n - 1 - c] = matrix[c][n - 1 - r];
+                ret[c][n - 1 - r] = matrix[r][c];
+            }
+        }
+        return ret;
     }
     
     public class Node<T> {
