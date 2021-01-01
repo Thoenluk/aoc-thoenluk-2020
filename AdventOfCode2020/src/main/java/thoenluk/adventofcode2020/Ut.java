@@ -52,6 +52,24 @@ public class Ut {
         return array[array.length - 1];
     }
     
+    /**
+     * Return the element at the specified index, wrapping around both sides if necessary.
+     * If 0 <= index, return list.get(index);
+     * Otherwise index < 0, return list.get(list.size() - index); The indexth element from the end of the list.
+     * In either case, the index is shrunk to fit into the list's boundaries.
+     * @param list The list to be gotten from.
+     * @param index The index from the front (or back, if negative) the element is located at.
+     * @return The element of the list located as described.
+     */
+    public static <T> T betterGet(List<T> list, int index) {
+        index %= list.size();
+        if(index < 0) {
+            return list.get(list.size() + index);
+        } else {
+            return list.get(index);
+        }
+    }
+    
     public static <T> T[][] flipVertically(T[][] matrix, Class<T> type) {
         int m = matrix.length;
         int n = matrix[0].length;

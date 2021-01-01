@@ -61,7 +61,9 @@ public class AOC20Runner {
                 String actualDay = solutionIdentifier.substring(0, 2);
                 String input = Files.readString(Paths.get(actualDay, "\\input.txt"));
                 // Run the solution on the provided input. What it does to generate output is not specified.          
+                long startTime = System.nanoTime();
                 solutions.get(solutionIdentifier).invoke(null, input);
+                System.out.println("All done in " + (System.nanoTime() - startTime)/1e6 + " milliseconds!");
             }
         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             System.out.println("I don't even know how this happened.\n"
